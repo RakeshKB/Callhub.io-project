@@ -1,0 +1,35 @@
+/* navbar */
+.navbar-custom {
+    background-color: #2196F3;
+    border-color: #E7E7E7; 
+}
+
+.navbar-text{
+   color: #FAFAFA; 
+   font-size: 25px;
+   font-family: Arial;
+}
+
+.remove_search_backgroungcolor{
+    background-color: white;
+    border-right: none;
+}
+
+.title{
+    font-family: Lucida, Comic Sans, Comic Sans MS, cursive;
+    font-size: 25px;
+    color: #757575;
+}
+
+.remove_border{
+    background-color: :white;
+    border-left: none;
+    /*border-right: none;*/
+}
+.remove_close_backgroungcolor{
+    background-color: white;
+    border-left: none;
+}
+.modal-body {
+    word-wrap: break-word;
+}
