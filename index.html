@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Callhub.IO</title>
+    <link rel="stylesheet" type="text/css" href="dependencies/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="angular_client/css/style.css">
+
+    <!-- These scripts will only be called into action whenwebsite is opened in IE8
+    These scripts bring support for HTML5 and CSS3 in it. The scripts are namely
+    1. html5shiv.js
+    2. respond.min.js -->
+    <!-- [if lt IE 9] >
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="FibonacciApp">
+    <div class="container-fluid" ng-controller="MainController">
+        <div class="header">
+            <nav class="navbar navbar-custom">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-text" href="#">{{navbar}}
+                    <!-- <img alt="Symbol" src"angular_client/img/logo.jpg"> -->
+                  </a>
+                </div>
+              </div>
+            </nav>
+        </div>
+        <div ng-view=""></div>
+        <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 text-center">
+            <div class="title">{{title}}</div>
+        </div>
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="input-group">
+                <span class="input-group-addon remove_search_backgroungcolor" ng-click="GetFibonacci()">
+                    <i class="glyphicon glyphicon-search"></i>
+                </span>
+                <!--
+                        ng-keypress="($event.which === 13)?GetFibonacci():0" checks for the ENTER keypress
+                        If pressed, it calls GetFibonacci() otherwise does nothing
+                -->
+                    <input type="search"  ng-model="number" class="form-control remove_border" style="font-style:normal" placeholder="What value of fibonacci do you want?" ng-keypress="($event.which === 13)?GetFibonacci(number):0" />
+                    <span ng-if="number" class="input-group-addon remove_close_backgroungcolor" id="searchclear" ng-click="clearText()" uib-tooltip="clear"><i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                </div><br>
+                <button type="button" class="btn btn-large btn-success center-block newtrack" ng-click="GetFibonacci(number)" data-toggle="modal" data-target="#myFibonacciModel">Display Fibonacci</button>
+            </div>
+        </div>
+        <br>
+        <div class="footer navbar-fixed-bottom container">
+            <p>Made with <span class="glyphicon glyphicon-heart" style="color:#f44336"></span> for AngularJS</p>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="myFibonacciModel" tabindex="-1" role="dialog" aria-labelledby="myFibonacciModel" aria-hidden="true" ng-controller="MainController">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close Modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myViewTrackModal"><h4>{{currentTrack}}</h4>
+                </div> -->
+                <div class="modal-body">
+                    <div class="viewTrack">Time: {{exec_time}}</div>
+                    <div class="viewTrack"><p class="describeTrack">Fibonacci [{{fibo}}]: {{fibo_value}}</div>
+                </div>
+                <div class="column">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="dependencies/js/bootstrap.min.js"></script>
+    <script src="dependencies/js/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
+    <script src="angular_client/js/app.js"></script>
+    <script src="angular_client/js/controllers.js"></script>
+</body>
+</html>
